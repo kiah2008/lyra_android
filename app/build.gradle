@@ -1,0 +1,63 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    ndkVersion '20.1.5948944'
+    compileSdkVersion 29
+
+    defaultConfig {
+        applicationId "com.example.android.lyra"
+        minSdkVersion 28
+        versionCode 7
+        versionName "1.5.4"
+
+        externalNativeBuild {
+            cmake {
+                cppFlags "-std=c++11"
+                abiFilters "arm64-v8a"
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+
+    sourceSets {
+        main {
+            java.srcDirs = ['./java']
+            res.srcDirs = ["./res" ]
+            manifest.srcFile "./AndroidManifest.xml"
+            jni.srcDirs = ["./cpp"]
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "cpp/CMakeLists.txt"
+            version "3.10.2"
+        }
+    }
+
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.gridlayout:gridlayout:1.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:2.0.4'
+    implementation project(path: ':liblyra')
+}

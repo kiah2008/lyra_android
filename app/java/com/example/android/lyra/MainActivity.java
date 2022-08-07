@@ -23,13 +23,15 @@ import android.media.AudioRecord;
 import android.media.AudioTrack;
 import android.media.MediaRecorder;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.support.v4.app.ActivityCompat;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -60,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
   @Override
   public void onRequestPermissionsResult(
-      int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+          int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
     super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     switch (requestCode) {
       case REQUEST_RECORD_AUDIO_PERMISSION:
@@ -251,7 +253,7 @@ public class MainActivity extends AppCompatActivity {
    * A method that is implemented by the 'lyra_android_example' C++ library, which is packaged with
    * this application.
    */
-  public native String benchmarkDecode(int numCondVectors, String modelBasePath);
+  public native int benchmarkDecode(int numCondVectors, String modelBasePath);
 
   public native short[] encodeAndDecodeSamples(
       short[] samples, int sampleLength, String modelBasePath);

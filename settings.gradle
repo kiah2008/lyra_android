@@ -1,0 +1,4 @@
+rootProject.name = "lyra_demo"
+
+include ':app'
+include ':liblyra'
