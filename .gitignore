@@ -5,3 +5,5 @@ app/build/
 liblyra/build/
 liblyra/.cxx/
 .idea/
+external_libs/abseil-cpp-20220623.0/build
+external_libs/filesystem-1.5.12/build

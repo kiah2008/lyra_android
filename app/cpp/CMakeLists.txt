@@ -3,7 +3,7 @@
 
 # Sets the minimum version of CMake required to build the native library.
 
-cmake_minimum_required(VERSION 3.10.2)
+cmake_minimum_required(VERSION 3.16)
 
 # Declares and names the project.
 
@@ -15,13 +15,13 @@ project("nativelib")
 # Gradle automatically packages shared libraries with your APK.
 
 add_library( # Sets the name of the library.
-             nativelib
+        nativelib
 
-             # Sets the library as a shared library.
-             SHARED
+        # Sets the library as a shared library.
+        SHARED
 
-             # Provides a relative path to your source file(s).
-             jni_benchmark_decode_lib.cc )
+        # Provides a relative path to your source file(s).
+        jni_benchmark_decode_lib.cc)
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
@@ -30,23 +30,32 @@ add_library( # Sets the name of the library.
 # completing its build.
 
 find_library( # Sets the name of the path variable.
-              log-lib
+        log-lib
 
-              # Specifies the name of the NDK library that
-              # you want CMake to locate.
-              log )
+        # Specifies the name of the NDK library that
+        # you want CMake to locate.
+        log)
+
 
 # Specifies libraries CMake should link to your target library. You
 # can link multiple libraries, such as libraries you define in this
 # build script, prebuilt third-party libraries, or system libraries.
 
 target_link_libraries( # Specifies the target library.
-                       nativelib
+        nativelib
 
-                       # Links the target library to the log library
-                       # included in the NDK.
-                       ${log-lib} )
+        abseil_hdrs
+        lyra_export
+        # Links the target library to the log library
+        # included in the NDK.
+        ${log-lib})
 
 target_include_directories(nativelib
         PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR}/../../liblyra/src)
+        ${CMAKE_CURRENT_SOURCE_DIR}/../../liblyra/src/
+        ${CMAKE_CURRENT_SOURCE_DIR}/../../liblyra/src/proto/
+        ${CMAKE_CURRENT_SOURCE_DIR}/../../libs/abseil-cpp/include/
+        ${CMAKE_CURRENT_SOURCE_DIR}/../../libs/glog-0.6.0/
+        ${CMAKE_CURRENT_SOURCE_DIR}/../../libs/protobuf-3.21.4/
+        ../../external_libs/filesystem-1.5.12/
+        )
