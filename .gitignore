@@ -7,3 +7,4 @@ liblyra/.cxx/
 .idea/
 external_libs/abseil-cpp-20220623.0/build
 external_libs/filesystem-1.5.12/build
+external_libs/eigen-3.4.0/build

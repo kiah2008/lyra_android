@@ -23,12 +23,13 @@ target_include_directories(lyra_export
         PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/src/
         ${CMAKE_CURRENT_SOURCE_DIR}/src/proto/
+        ${CMAKE_CURRENT_SOURCE_DIR}/../
         ${CMAKE_CURRENT_SOURCE_DIR}/../libs/abseil-cpp/include/
         ${CMAKE_CURRENT_SOURCE_DIR}/../libs/glog-0.6.0/
         ${CMAKE_CURRENT_SOURCE_DIR}/../libs/protobuf-3.21.4/
         ${CMAKE_CURRENT_SOURCE_DIR}/../libs/filesystem-1.5.12/
         ${CMAKE_CURRENT_SOURCE_DIR}/../libs/multichannel-audio-tools/
-        ${CMAKE_CURRENT_SOURCE_DIR}/../libs/multichannel-audio-tools/third_party/eigen3
+        ${CMAKE_CURRENT_SOURCE_DIR}/../libs/eigen-3.4.0/include/eigen3/
         ${CMAKE_CURRENT_SOURCE_DIR}/../libs/multichannel-audio-tools/third_party/fft2d
         ${CMAKE_CURRENT_SOURCE_DIR}/../libs/multichannel-audio-tools/third_party/kissfft
         )
