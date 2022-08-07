@@ -1,2 +1,7 @@
 .gradle
 app/build/
+app/.cxx/
+app/build/
+liblyra/build/
+liblyra/.cxx/
+.idea/
