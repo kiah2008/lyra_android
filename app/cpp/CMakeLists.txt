@@ -46,9 +46,12 @@ target_link_libraries( # Specifies the target library.
 
         abseil_hdrs
         lyra_export
+        glog_lib
         # Links the target library to the log library
         # included in the NDK.
         ${log-lib})
+
+ADD_DEPENDENCIES(nativelib glog_lib)
 
 target_include_directories(nativelib
         PRIVATE
@@ -57,5 +60,5 @@ target_include_directories(nativelib
         ${CMAKE_CURRENT_SOURCE_DIR}/../../libs/abseil-cpp/include/
         ${CMAKE_CURRENT_SOURCE_DIR}/../../libs/glog-0.6.0/
         ${CMAKE_CURRENT_SOURCE_DIR}/../../libs/protobuf-3.21.4/
-        ../../external_libs/filesystem-1.5.12/
+        ${CMAKE_CURRENT_SOURCE_DIR}/../../external_libs/filesystem-1.5.12/
         )

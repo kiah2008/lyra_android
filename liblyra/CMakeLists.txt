@@ -19,6 +19,7 @@ add_library(lyra_export STATIC
         src/lyra_encoder.cc
         src/lyra_encoder.h
         )
+
 target_include_directories(lyra_export
         PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/src/
@@ -37,12 +38,6 @@ target_include_directories(lyra_export
 # shared lib
 
 #add_library(lyra_codec comfort_noise_generator.cc)
-add_library(abseil_hdrs INTERFACE)
-target_include_directories(
-        abseil_hdrs
-        INTERFACE
-        ../libs/abseil-cpp/include
-)
 
 add_library(architecture_utils INTERFACE)
 target_include_directories(

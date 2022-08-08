@@ -59,3 +59,5 @@ target_include_directories(nativelib
         ${CMAKE_CURRENT_SOURCE_DIR}/../../libs/protobuf-3.21.4/
         ../../external_libs/filesystem-1.5.12/
         )
+
+#cmake -B./build  -S . -DCMAKE_INSTALL_PREFIX=./build/release -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=android-29 -DANDROID_NDK=c:\Users\kiah\AppData\Local\Android\Sdk\ndk\20.1.5948944 -DCMAKE_TOOLCHAIN_FILE=c:\Users\kiah\AppData\Local\Android\Sdk\ndk\20.1.5948944\build\cmake\android.toolchain.cmake -DCMAKE_HOST_SYSTEM_NAME=Windows -G Ninja -DEIGEN_TEST_CXX11=ON
