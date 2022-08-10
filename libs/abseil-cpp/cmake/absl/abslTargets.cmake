@@ -45,12 +45,15 @@ unset(_cmake_targets_defined)
 unset(_cmake_targets_not_defined)
 unset(_cmake_expected_targets)
 
-
+MESSAGE("=========== PACKAGE_PREFIX_DIR ${PACKAGE_PREFIX_DIR}")
 # Compute the installation prefix relative to this file.
-get_filename_component(_IMPORT_PREFIX "abslTargets.cmake" PATH)
-get_filename_component(_IMPORT_PREFIX "${_IMPORT_PREFIX}" PATH)
-get_filename_component(_IMPORT_PREFIX "${_IMPORT_PREFIX}" PATH)
-get_filename_component(_IMPORT_PREFIX "${_IMPORT_PREFIX}" PATH)
+#get_filename_component(_IMPORT_PREFIX "abslTargets.cmake" PATH)
+#get_filename_component(_IMPORT_PREFIX "${PACKAGE_PREFIX_DIR}/" PATH)
+set(_IMPORT_PREFIX "${PACKAGE_PREFIX_DIR}/")
+
+MESSAGE("=========== _IMPORT_PREFIX ${_IMPORT_PREFIX}")
+#get_filename_component(_IMPORT_PREFIX "${_IMPORT_PREFIX}" PATH)
+#get_filename_component(_IMPORT_PREFIX "${_IMPORT_PREFIX}" PATH)
 if(_IMPORT_PREFIX STREQUAL ".")
   set(_IMPORT_PREFIX "")
 endif()

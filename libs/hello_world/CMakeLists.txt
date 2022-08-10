@@ -5,5 +5,5 @@ ADD_EXECUTABLE(helloworld
         nativelib.cpp
         )
 TARGET_LINK_LIBRARIES(helloworld
-        glog_lib
+        ${GLOG_LIBS}
         )

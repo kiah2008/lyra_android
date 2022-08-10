@@ -44,14 +44,18 @@ find_library( # Sets the name of the path variable.
 target_link_libraries( # Specifies the target library.
         nativelib
 
-        abseil_hdrs
-        lyra_export
-        glog_lib
+        ${ABSL_INCLUD_DIRS}
+        ${ABSL_LIBS}
+
+        ${GLOG_INCLUD_DIRS}
+        ${GLOG_LIBS}
         # Links the target library to the log library
         # included in the NDK.
-        ${log-lib})
+        ${log-lib}
+        lyra-lib
+        )
 
-ADD_DEPENDENCIES(nativelib glog_lib)
+#ADD_DEPENDENCIES(nativelib glog_lib)
 
 target_include_directories(nativelib
         PRIVATE
