@@ -3,8 +3,17 @@ project(lyra_codec VERSION 0.1.0)
 
 #include(CTest)
 #enable_testing()
+if (NOT TARGET ${log-lib})
 
-#add_subdirectory(libs/glog-0.6.0)
+    find_library( # Sets the name of the path variable.
+            log-lib
+
+            # Specifies the name of the NDK library that
+            # you want CMake to locate.
+            log)
+
+endif()
+    #add_subdirectory(libs/glog-0.6.0)
 add_library(lyra-lib STATIC
         src/decoder_main.cc
         src/decoder_main_lib.cc
@@ -52,10 +61,6 @@ add_library(lyra-lib STATIC
         src/layer_wrapper.h
         src/layer_wrapper_interface.h
         src/layer_wrappers_lib.h
-        src/LICENSE
-        src/log_mel_spectrogram_extractor_impl.cc
-        src/log_mel_spectrogram_extractor_impl.h
-        src/log_mel_spectrogram_extractor_impl_benchmark.cc
         src/lyra_components.cc
         src/lyra_components.h
         src/lyra_config.cc
@@ -97,6 +102,19 @@ add_library(lyra-lib STATIC
         src/wavegru_model_impl.cc
         src/wavegru_model_impl.h
         )
+
+target_link_libraries(
+        lyra-lib
+        PUBLIC
+        ${ABSL_INCLUD_DIRS}
+        ${ABSL_LIBS}
+
+        ${GLOG_INCLUD_DIRS}
+        ${GLOG_LIBS}
+        # Links the target library to the log library
+        # included in the NDK.
+        ${log-lib}
+)
 
 target_include_directories(lyra-lib
         PRIVATE
