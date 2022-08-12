@@ -37,7 +37,7 @@
 #include "dsp_util.h"
 #include "generative_model_interface.h"
 #include "glog/logging.h"
-#include "include/ghc/filesystem.hpp"
+#include "ghc/filesystem.hpp"
 #include "log_mel_spectrogram_extractor_impl.h"
 #include "lyra_config.h"
 #include "wavegru_model_impl.h"

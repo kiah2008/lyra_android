@@ -22,7 +22,7 @@
 #include "architecture_utils.h"
 #include "decoder_main_lib.h"
 #include "glog/logging.h"
-#include "include/ghc/filesystem.hpp"
+#include "ghc/filesystem.hpp"
 
 ABSL_FLAG(std::string, encoded_path, "",
           "Complete path to the file containing the encoded features.");

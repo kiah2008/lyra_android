@@ -24,7 +24,7 @@
 
 #include "Eigen/Core"
 #include "absl/types/optional.h"
-#include "include/ghc/filesystem.hpp"
+#include "ghc/filesystem.hpp"
 #include "vector_quantizer_interface.h"
 
 namespace chromemedia {

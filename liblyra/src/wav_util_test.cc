@@ -19,7 +19,7 @@
 #include "absl/flags/flag.h"
 #include "absl/status/statusor.h"
 #include "gtest/gtest.h"
-#include "include/ghc/filesystem.hpp"
+#include "ghc/filesystem.hpp"
 
 namespace chromemedia::codec {
 namespace {

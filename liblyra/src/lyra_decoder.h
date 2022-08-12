@@ -26,7 +26,7 @@
 #include "absl/types/optional.h"
 #include "absl/types/span.h"
 #include "generative_model_interface.h"
-#include "include/ghc/filesystem.hpp"
+#include "ghc/filesystem.hpp"
 #include "lyra_decoder_interface.h"
 #include "packet_interface.h"
 #include "packet_loss_handler_interface.h"

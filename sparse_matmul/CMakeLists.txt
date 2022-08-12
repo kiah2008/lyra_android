@@ -37,19 +37,31 @@ TARGET_SOURCES(sparse_matmul
 
         ${CMAKE_CURRENT_SOURCE_DIR}/vector/cache_aligned_vector.h
 
+
         ${CMAKE_CURRENT_SOURCE_DIR}/os/coop_threads.cc
         ${CMAKE_CURRENT_SOURCE_DIR}/os/coop_threads.h
+
+        ${CMAKE_CURRENT_SOURCE_DIR}/zlib_wrapper/gzipheader.cc
+        ${CMAKE_CURRENT_SOURCE_DIR}/zlib_wrapper/gzipheader.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/zlib_wrapper/zlibwrapper.cc
+        ${CMAKE_CURRENT_SOURCE_DIR}/zlib_wrapper/zlibwrapper.h
         )
 
 set_target_properties(sparse_matmul PROPERTIES
         INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_CURRENT_SOURCE_DIR}/compute;${CMAKE_CURRENT_SOURCE_DIR}/numerics; ${CMAKE_CURRENT_SOURCE_DIR}/layers"
         )
 
+target_include_directories(
+        sparse_matmul
+        PRIVATE
+        ${ABSL_INCLUD_DIR}
+        ${GLOG_INCLUD_DIR}
+)
+
 target_link_libraries(
         sparse_matmul
         PUBLIC
         ${ABSL_LIBS}
         ${GLOG_LIBS}
-        ABSL_INCLUD_DIR
-        GLOG_INCLUD_DIRS
+        ghc_filesystem
 )

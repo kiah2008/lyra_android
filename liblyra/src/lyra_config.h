@@ -28,7 +28,7 @@
 #include "absl/strings/string_view.h"
 #include "glog/logging.h"
 #include "google/protobuf/text_format.h"
-#include "include/ghc/filesystem.hpp"
+#include "ghc/filesystem.hpp"
 #include "lyra_config.pb.h"
 
 namespace chromemedia {

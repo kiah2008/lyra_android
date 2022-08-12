@@ -20,7 +20,7 @@
 // Placeholder for get runfiles header.
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
-#include "include/ghc/filesystem.hpp"
+#include "ghc/filesystem.hpp"
 #include "layer_wrapper.h"
 #include "layer_wrapper_test_common.h"
 #include "sparse_matmul/sparse_matmul.h"

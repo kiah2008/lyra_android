@@ -30,7 +30,7 @@
 #include "absl/time/time.h"
 #include "absl/types/span.h"
 #include "glog/logging.h"
-#include "include/ghc/filesystem.hpp"
+#include "ghc/filesystem.hpp"
 #include "lyra_config.h"
 #include "lyra_encoder.h"
 #include "no_op_preprocessor.h"

@@ -25,7 +25,7 @@
 #include "exported_layers_test.h"
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
-#include "include/ghc/filesystem.hpp"
+#include "ghc/filesystem.hpp"
 #include "lyra_types.h"
 #include "sparse_matmul/sparse_matmul.h"
 

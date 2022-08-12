@@ -23,7 +23,7 @@
 #include "absl/flags/flag.h"
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
-#include "include/ghc/filesystem.hpp"
+#include "ghc/filesystem.hpp"
 #include "sparse_matmul/layers/csr_blocksparse_matrix.h"
 #include "sparse_matmul/layers/errno_mapping.h"
 #include "sparse_matmul/layers/sparse_linear_layer.h"

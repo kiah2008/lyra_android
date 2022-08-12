@@ -14,10 +14,11 @@ include(${LIBS_PATH}/glog-0.6.0/glogConfig.cmake)
 #LIST(APPEND CMAKE_MODULE_PATH ${LIBS_PATH}/protobuf-3.21.4/cmake/protobuf/)
 #find_package(Protobuf REQUIRED)
 include(${LIBS_PATH}/protobuf-3.21.4/cmake/protobuf/protobuf-config.cmake)
+include(${LIBS_PATH}/eigen/share/eigen3/cmake/Eigen3Config.cmake)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/)
 
 ADD_SUBDIRECTORY(${CMAKE_SOURCE_DIR}/libs/)
-#ADD_SUBDIRECTORY(${CMAKE_SOURCE_DIR}/app/cpp/)
+ADD_SUBDIRECTORY(${CMAKE_SOURCE_DIR}/app/cpp/)
 ADD_SUBDIRECTORY(${CMAKE_SOURCE_DIR}/sparse_matmul/)
-#ADD_SUBDIRECTORY(${CMAKE_SOURCE_DIR}/liblyra/)
+ADD_SUBDIRECTORY(${CMAKE_SOURCE_DIR}/liblyra/src)

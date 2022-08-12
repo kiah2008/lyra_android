@@ -22,7 +22,7 @@
 #include <vector>
 
 #include "absl/strings/string_view.h"
-#include "include/ghc/filesystem.hpp"
+#include "ghc/filesystem.hpp"
 
 namespace chromemedia {
 namespace codec {

@@ -1,11 +1,16 @@
 set(ABSL_LIBS )
 
-add_library(ABSL_INCLUD_DIR INTERFACE)
-target_include_directories(
-        ABSL_INCLUD_DIR
-		INTERFACE
-		${CMAKE_CURRENT_SOURCE_DIR}/abseil-cpp/include/
-)
+if (NOT EXISTS ${CMAKE_CURRENT_LIST_DIR}/include/)
+    MESSAGE(FATAL_ERROR
+            "not valid path ${CMAKE_CURRENT_LIST_DIR}")
+endif()
+
+#add_library(ABSL_INCLUD_DIR INTERFACE IMPORTED)
+#set_target_properties(ABSL_INCLUD_DIR PROPERTIES
+#        INTERFACE_INCLUDE_DIRECTORIES
+#        ${CMAKE_CURRENT_LIST_DIR}/include/
+#        )
+set(ABSL_INCLUD_DIR ${CMAKE_CURRENT_LIST_DIR}/include/)
 
 file(GLOB USER_LIBS_PATH ${CMAKE_CURRENT_LIST_DIR}/${ANDROID_ABI}/*.a)
 foreach (f ${USER_LIBS_PATH})

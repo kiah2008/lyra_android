@@ -26,7 +26,7 @@
 
 #include "absl/status/status.h"
 #include "absl/strings/substitute.h"
-#include "include/ghc/filesystem.hpp"
+#include "ghc/filesystem.hpp"
 
 namespace csrblocksparse {
 namespace detail {

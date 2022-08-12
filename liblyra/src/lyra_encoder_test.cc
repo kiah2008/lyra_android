@@ -34,7 +34,7 @@
 #include "feature_extractor_interface.h"
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
-#include "include/ghc/filesystem.hpp"
+#include "ghc/filesystem.hpp"
 #include "lyra_config.h"
 #include "noise_estimator_interface.h"
 #include "packet.h"

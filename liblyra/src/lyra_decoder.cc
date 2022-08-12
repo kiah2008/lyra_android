@@ -30,7 +30,7 @@
 #include "comfort_noise_generator.h"
 #include "generative_model_interface.h"
 #include "glog/logging.h"
-#include "include/ghc/filesystem.hpp"
+#include "ghc/filesystem.hpp"
 #include "lyra_components.h"
 #include "lyra_config.h"
 #include "packet_interface.h"

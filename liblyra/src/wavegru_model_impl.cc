@@ -25,7 +25,7 @@
 #include "buffer_merger.h"
 #include "causal_convolutional_conditioning.h"
 #include "glog/logging.h"
-#include "include/ghc/filesystem.hpp"
+#include "ghc/filesystem.hpp"
 #include "lyra_wavegru.h"
 #include "sparse_matmul/sparse_matmul.h"
 // IWYU pragma: no_include "speech/greco3/core/thread.h"

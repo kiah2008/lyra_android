@@ -171,7 +171,5 @@ if(protobuf_MODULE_COMPATIBLE)
   include("${CMAKE_CURRENT_LIST_DIR}/protobuf-module.cmake")
 endif()
 
-MESSAGE("======protobuf ${Protobuf_LIBRARIES}")
-
 #set(protobuf_LIBRARIES protobuf::libprotobuf)
 #set(protobuf_INCLUDE_DIR ${PACKAGE_PREFIX})

@@ -34,7 +34,7 @@
 #include "causal_convolutional_conditioning.h"
 #include "dsp_util.h"
 #include "glog/logging.h"
-#include "include/ghc/filesystem.hpp"
+#include "ghc/filesystem.hpp"
 #include "layer_wrappers_lib.h"
 #include "lyra_types.h"
 #include "project_and_sample.h"

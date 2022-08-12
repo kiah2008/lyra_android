@@ -25,7 +25,7 @@
 // Placeholder for get runfiles header.
 #include "absl/strings/str_format.h"
 #include "gtest/gtest.h"
-#include "include/ghc/filesystem.hpp"
+#include "ghc/filesystem.hpp"
 #include "lyra_config.h"
 #include "sparse_matmul/sparse_matmul.h"  // IWYU pragma: keep
 

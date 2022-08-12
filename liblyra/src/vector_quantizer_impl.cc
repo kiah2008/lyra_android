@@ -28,7 +28,7 @@
 #include "absl/types/optional.h"
 #include "audio/dsp/signal_vector_util.h"
 #include "glog/logging.h"
-#include "include/ghc/filesystem.hpp"
+#include "ghc/filesystem.hpp"
 #include "sparse_matmul/sparse_matmul.h"
 
 namespace chromemedia {

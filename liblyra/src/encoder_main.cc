@@ -22,7 +22,7 @@
 #include "architecture_utils.h"
 #include "encoder_main_lib.h"
 #include "glog/logging.h"
-#include "include/ghc/filesystem.hpp"
+#include "ghc/filesystem.hpp"
 
 ABSL_FLAG(std::string, input_path, "",
           "Complete path to the WAV file to be encoded.");

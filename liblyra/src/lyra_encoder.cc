@@ -31,7 +31,7 @@
 #include "dsp_util.h"
 #include "feature_extractor_interface.h"
 #include "glog/logging.h"
-#include "include/ghc/filesystem.hpp"
+#include "ghc/filesystem.hpp"
 #include "lyra_components.h"
 #include "lyra_config.h"
 #include "noise_estimator.h"

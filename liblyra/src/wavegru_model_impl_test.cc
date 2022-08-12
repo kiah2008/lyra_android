@@ -21,7 +21,7 @@
 
 // Placeholder for get runfiles header.
 #include "gtest/gtest.h"
-#include "include/ghc/filesystem.hpp"
+#include "ghc/filesystem.hpp"
 #include "lyra_config.h"
 
 namespace chromemedia {

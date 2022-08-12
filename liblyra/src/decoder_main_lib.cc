@@ -31,7 +31,7 @@
 #include "absl/types/span.h"
 #include "gilbert_model.h"
 #include "glog/logging.h"
-#include "include/ghc/filesystem.hpp"
+#include "ghc/filesystem.hpp"
 #include "lyra_config.h"
 #include "lyra_decoder.h"
 #include "wav_util.h"

@@ -23,7 +23,7 @@
 #include "absl/strings/string_view.h"
 #include "absl/types/span.h"
 #include "gtest/gtest.h"
-#include "include/ghc/filesystem.hpp"
+#include "ghc/filesystem.hpp"
 #include "sparse_matmul/compute/matmul.h"
 #include "sparse_matmul/layers/utils.h"
 #include "sparse_matmul/numerics/test_utils.h"

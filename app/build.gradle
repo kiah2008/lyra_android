@@ -39,7 +39,7 @@ android {
     sourceSets {
         main {
             java.srcDirs = ['./java']
-            res.srcDirs = ["./res" ]
+            res.srcDirs = ["./res"]
             manifest.srcFile "./AndroidManifest.xml"
             jni.srcDirs = ["./cpp"]
             jniLibs.srcDirs = ['libs']
@@ -53,6 +53,7 @@ android {
         }
     }
 
+    packagingOptions { jniLibs { useLegacyPackaging true } }
 }
 
 dependencies {

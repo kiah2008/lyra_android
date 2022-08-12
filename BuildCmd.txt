@@ -1,1 +1,4 @@
 rd /s /q ./build && cmake -B./build  -S . -DCMAKE_INSTALL_PREFIX=./build/release -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=android-29 -DANDROID_NDK=c:\Users\kiah\AppData\Local\Android\Sdk\ndk\20.1.5948944 -DCMAKE_TOOLCHAIN_FILE=c:\Users\kiah\AppData\Local\Android\Sdk\ndk\20.1.5948944\build\cmake\android.toolchain.cmake -DCMAKE_HOST_SYSTEM_NAME=Windows -G Ninja
+
+
+cmake -B./build  -S . -DEIGEN_TEST_CXX11=ON -DCMAKE_INSTALL_PREFIX=./build/release -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=android-29 -DANDROID_NDK=c:\Users\kiah\AppData\Local\Android\Sdk\ndk\20.1.5948944 -DCMAKE_TOOLCHAIN_FILE=c:\Users\kiah\AppData\Local\Android\Sdk\ndk\20.1.5948944\build\cmake\android.toolchain.cmake -DCMAKE_HOST_SYSTEM_NAME=Windows -G Ninja

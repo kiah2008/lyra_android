@@ -61,3 +61,53 @@ project("audio_dsp")
 #        )
 
 #cmake -B./build  -S . -DCMAKE_INSTALL_PREFIX=./build/release -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=android-29 -DANDROID_NDK=c:\Users\kiah\AppData\Local\Android\Sdk\ndk\20.1.5948944 -DCMAKE_TOOLCHAIN_FILE=c:\Users\kiah\AppData\Local\Android\Sdk\ndk\20.1.5948944\build\cmake\android.toolchain.cmake -DCMAKE_HOST_SYSTEM_NAME=Windows -G Ninja -DEIGEN_TEST_CXX11=ON
+
+add_library(audio_dsp_hdr INTERFACE)
+set_target_properties(audio_dsp_hdr PROPERTIES
+        INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_CURRENT_SOURCE_DIR}"
+        )
+
+add_library(audio_dsp STATIC
+        audio/dsp/portable/read_wav_file.c
+        audio/dsp/portable/read_wav_file.h
+        audio/dsp/portable/read_wav_file_generic.c
+        audio/dsp/portable/read_wav_file_generic.h
+        audio/dsp/portable/read_wav_info.h
+        audio/dsp/portable/write_wav_file.c
+        audio/dsp/portable/write_wav_file.h
+        audio/dsp/portable/write_wav_file_generic.c
+        audio/dsp/portable/write_wav_file_generic.h
+        audio/dsp/portable/write_wav_string.cc
+        audio/dsp/portable/write_wav_string.h
+
+        audio/dsp/spectrogram/spectrogram.cc
+        audio/dsp/spectrogram/spectrogram.h
+
+        audio/dsp/porting.cc
+        audio/dsp/window_functions.cc
+        audio/dsp/window_functions.h
+        audio/dsp/types.h
+
+        audio/dsp/mfcc/mel_filterbank.h
+        audio/dsp/mfcc/mel_filterbank.cc
+
+        audio/dsp/resampler_q.cc
+        audio/dsp/resampler_q.h
+        )
+
+target_link_libraries(
+        audio_dsp
+        PRIVATE
+        audio_dsp_hdr
+        Eigen3::Eigen
+        ${GLOG_LIBS}
+        ${ABSL_LIBS}
+)
+
+
+target_include_directories(
+        audio_dsp
+        PRIVATE
+        ${ABSL_INCLUD_DIR}
+        ${GLOG_INCLUD_DIR}
+)

@@ -7,7 +7,7 @@ cmake_minimum_required(VERSION 3.16)
 
 # Declares and names the project.
 
-project("nativelib")
+project("lyra_android_example" LANGUAGES CXX)
 
 # Creates and names a library, sets it as either STATIC
 # or SHARED, and provides the relative paths to its source code.
@@ -15,7 +15,7 @@ project("nativelib")
 # Gradle automatically packages shared libraries with your APK.
 
 add_library( # Sets the name of the library.
-        nativelib
+        lyra_android_example
 
         # Sets the library as a shared library.
         SHARED
@@ -42,7 +42,7 @@ find_library( # Sets the name of the path variable.
 # build script, prebuilt third-party libraries, or system libraries.
 
 target_link_libraries( # Specifies the target library.
-        nativelib
+        lyra_android_example
 
         ${ABSL_INCLUD_DIRS}
         ${ABSL_LIBS}
@@ -57,7 +57,7 @@ target_link_libraries( # Specifies the target library.
 
 #ADD_DEPENDENCIES(nativelib glog_lib)
 
-target_include_directories(nativelib
+target_include_directories(lyra_android_example
         PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/../../liblyra/src/
         ${CMAKE_CURRENT_SOURCE_DIR}/../../liblyra/src/proto/

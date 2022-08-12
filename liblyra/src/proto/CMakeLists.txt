@@ -3,16 +3,20 @@ if (NOT Protobuf_LIBRARIES)
     MESSAGE(FATAL_ERROR "fail to find Protobuf_LIBRARIES")
 endif()
 
-add_library(lyra_config STATIC
+add_library(lyra-config STATIC
         ${CMAKE_CURRENT_SOURCE_DIR}/lyra_config.pb.cc
         ${CMAKE_CURRENT_SOURCE_DIR}/lyra_config.pb.h
 )
 
-target_link_libraries(lyra_config
+SET_TARGET_PROPERTIES(lyra-config PROPERTIES
+        INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_CURRENT_SOURCE_DIR}/"
+        )
+
+target_link_libraries(lyra-config
         PUBLIC
         ${Protobuf_LIBRARIES}
         )
-target_include_directories(lyra_config
+target_include_directories(lyra-config
         PUBLIC
-        ${protobuf_INCLUDE_DIR}
+        ${Protobuf_INCLUDE_DIRS}
 )

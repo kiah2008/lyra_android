@@ -18,7 +18,7 @@
 #define LYRA_CODEC_ARCHITECTURE_UTILS_H_
 
 // Placeholder for get runfiles header.
-#include "include/ghc/filesystem.hpp"
+#include "ghc/filesystem.hpp"
 
 namespace chromemedia {
 namespace codec {

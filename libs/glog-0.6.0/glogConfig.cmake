@@ -1,14 +1,7 @@
 set(GLOG_LIBS )
 
-add_library(GLOG_INCLUD_DIRS INTERFACE)
-target_include_directories(
-        GLOG_INCLUD_DIRS
-		INTERFACE
-		${CMAKE_CURRENT_SOURCE_DIR}/abseil-cpp/include/
-)
-
-file(GLOB USER_LIBS_PATH ${CMAKE_CURRENT_LIST_DIR}/${ANDROID_ABI}/*.a)
-foreach (f ${USER_LIBS_PATH})
+file(GLOB _glog_user_libs_path ${CMAKE_CURRENT_LIST_DIR}/${ANDROID_ABI}/*.a)
+foreach (f ${_glog_user_libs_path})
     get_filename_component(filename ${f} NAME)
     string(LENGTH "${filename}" len)
     math(EXPR sublen ${len}-3-2)
@@ -19,3 +12,5 @@ foreach (f ${USER_LIBS_PATH})
 
     list(APPEND GLOG_LIBS ${libname})
 endforeach(f) 
+
+set(GLOG_INCLUD_DIR ${CMAKE_CURRENT_LIST_DIR}/)

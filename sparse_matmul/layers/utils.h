@@ -34,7 +34,7 @@
 #include "absl/status/status.h"
 #include "absl/strings/cord.h"
 #include "absl/strings/substitute.h"
-#include "include/ghc/filesystem.hpp"
+#include "ghc/filesystem.hpp"
 #include "sparse_matmul/layers/errno_mapping.h"
 #include "sparse_matmul/layers/masked_sparse_matrix.h"
 #include "sparse_matmul/layers/read_array_ifstream.h"

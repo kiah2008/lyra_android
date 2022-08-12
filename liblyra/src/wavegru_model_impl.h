@@ -27,7 +27,7 @@
 #include "buffer_merger.h"
 #include "causal_convolutional_conditioning.h"
 #include "generative_model_interface.h"
-#include "include/ghc/filesystem.hpp"
+#include "ghc/filesystem.hpp"
 #include "lyra_types.h"
 #include "lyra_wavegru.h"
 #include "sparse_matmul/sparse_matmul.h"
