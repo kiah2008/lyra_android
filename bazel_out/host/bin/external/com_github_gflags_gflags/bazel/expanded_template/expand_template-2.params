@@ -1,0 +1,12 @@
+-o
+bazel-out/host/bin/external/com_github_gflags_gflags/bazel/expanded_template/expand_template
+-Wl,-S
+-fuse-ld=gold
+-Wl,-no-as-needed
+-Wl,-z,relro,-z,now
+-B/usr/bin
+-pass-exit-codes
+-Wl,--gc-sections
+bazel-out/host/bin/external/com_github_gflags_gflags/bazel/expanded_template/_objs/expand_template/expand_template.o
+-lstdc++
+-lm

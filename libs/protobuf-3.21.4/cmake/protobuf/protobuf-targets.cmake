@@ -50,15 +50,15 @@ unset(_cmake_expected_targets)
 add_library(protobuf::libprotobuf-lite STATIC IMPORTED)
 
 set_target_properties(protobuf::libprotobuf-lite PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "D:/worktmp/lyra/liblyra/libs/protobuf-3.21.4/src"
+  INTERFACE_INCLUDE_DIRECTORIES "${PACKAGE_PREFIX}/"
   INTERFACE_LINK_LIBRARIES "\$<LINK_ONLY:-pthread>;\$<LINK_ONLY:log>"
 )
 
 # Create imported target protobuf::libprotobuf
-add_library(protobuf::libprotobuf STATIC IMPORTED)
+add_library(protobuf::libprotobuf STATIC IMPORTED GLOBAL)
 
 set_target_properties(protobuf::libprotobuf PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "D:/worktmp/lyra/liblyra/libs/protobuf-3.21.4/src"
+  INTERFACE_INCLUDE_DIRECTORIES "${PACKAGE_PREFIX}/"
   INTERFACE_LINK_LIBRARIES "\$<LINK_ONLY:-pthread>;\$<LINK_ONLY:ZLIB::ZLIB>;\$<LINK_ONLY:log>"
 )
 
@@ -66,7 +66,7 @@ set_target_properties(protobuf::libprotobuf PROPERTIES
 add_library(protobuf::libprotoc STATIC IMPORTED)
 
 set_target_properties(protobuf::libprotoc PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "D:/worktmp/lyra/liblyra/libs/protobuf-3.21.4/src"
+  INTERFACE_INCLUDE_DIRECTORIES "${PACKAGE_PREFIX}/"
   INTERFACE_LINK_LIBRARIES "\$<LINK_ONLY:protobuf::libprotobuf>"
 )
 
@@ -77,27 +77,27 @@ add_executable(protobuf::protoc IMPORTED)
 set_property(TARGET protobuf::libprotobuf-lite APPEND PROPERTY IMPORTED_CONFIGURATIONS NOCONFIG)
 set_target_properties(protobuf::libprotobuf-lite PROPERTIES
   IMPORTED_LINK_INTERFACE_LANGUAGES_NOCONFIG "CXX"
-  IMPORTED_LOCATION_NOCONFIG "D:/worktmp/lyra/liblyra/libs/protobuf-3.21.4/build/libprotobuf-lite.a"
+  IMPORTED_LOCATION_NOCONFIG "${PACKAGE_PREFIX}/${ANDROID_ABI}/libprotobuf-lite.a"
   )
 
 # Import target "protobuf::libprotobuf" for configuration ""
 set_property(TARGET protobuf::libprotobuf APPEND PROPERTY IMPORTED_CONFIGURATIONS NOCONFIG)
 set_target_properties(protobuf::libprotobuf PROPERTIES
   IMPORTED_LINK_INTERFACE_LANGUAGES_NOCONFIG "CXX"
-  IMPORTED_LOCATION_NOCONFIG "D:/worktmp/lyra/liblyra/libs/protobuf-3.21.4/build/libprotobuf.a"
+  IMPORTED_LOCATION_NOCONFIG "${PACKAGE_PREFIX}/${ANDROID_ABI}/libprotobuf.a"
   )
 
 # Import target "protobuf::libprotoc" for configuration ""
 set_property(TARGET protobuf::libprotoc APPEND PROPERTY IMPORTED_CONFIGURATIONS NOCONFIG)
 set_target_properties(protobuf::libprotoc PROPERTIES
   IMPORTED_LINK_INTERFACE_LANGUAGES_NOCONFIG "CXX"
-  IMPORTED_LOCATION_NOCONFIG "D:/worktmp/lyra/liblyra/libs/protobuf-3.21.4/build/libprotoc.a"
+  IMPORTED_LOCATION_NOCONFIG "${PACKAGE_PREFIX}/${ANDROID_ABI}/libprotoc.a"
   )
 
 # Import target "protobuf::protoc" for configuration ""
 set_property(TARGET protobuf::protoc APPEND PROPERTY IMPORTED_CONFIGURATIONS NOCONFIG)
 set_target_properties(protobuf::protoc PROPERTIES
-  IMPORTED_LOCATION_NOCONFIG "D:/worktmp/lyra/liblyra/libs/protobuf-3.21.4/build/protoc"
+  IMPORTED_LOCATION_NOCONFIG "${PACKAGE_PREFIX}/${ANDROID_ABI}/protoc"
   )
 
 # This file does not depend on other imported targets which have

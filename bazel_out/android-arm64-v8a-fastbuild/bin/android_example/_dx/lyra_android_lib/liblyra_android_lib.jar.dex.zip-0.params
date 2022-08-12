@@ -1,0 +1,4 @@
+--input_jar
+bazel-out/android-arm64-v8a-fastbuild/bin/android_example/_dx/lyra_android_lib/liblyra_android_lib.jar_desugared.jar
+--output_zip
+bazel-out/android-arm64-v8a-fastbuild/bin/android_example/_dx/lyra_android_lib/liblyra_android_lib.jar.dex.zip

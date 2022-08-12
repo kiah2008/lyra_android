@@ -1,5 +1,6 @@
+set(PACKAGE_PREFIX ${CMAKE_CURRENT_LIST_DIR}/../..)
 # User options
-include("protobuf-options.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/protobuf-options.cmake")
 
 # Depend packages
 if(NOT ZLIB_FOUND)
@@ -7,7 +8,7 @@ if(NOT ZLIB_FOUND)
 endif()
 
 # Imported targets
-include("protobuf-targets.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/protobuf-targets.cmake")
 
 function(protobuf_generate)
   include(CMakeParseArguments)
@@ -167,5 +168,10 @@ endfunction()
 
 # CMake FindProtobuf module compatible file
 if(protobuf_MODULE_COMPATIBLE)
-  include("protobuf-module.cmake")
+  include("${CMAKE_CURRENT_LIST_DIR}/protobuf-module.cmake")
 endif()
+
+MESSAGE("======protobuf ${Protobuf_LIBRARIES}")
+
+#set(protobuf_LIBRARIES protobuf::libprotobuf)
+#set(protobuf_INCLUDE_DIR ${PACKAGE_PREFIX})

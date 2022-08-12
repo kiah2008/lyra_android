@@ -6,4 +6,5 @@ ADD_EXECUTABLE(helloworld
         )
 TARGET_LINK_LIBRARIES(helloworld
         ${GLOG_LIBS}
+        ghc_filesystem
         )
