@@ -44,6 +44,7 @@ android {
             manifest.srcFile "./AndroidManifest.xml"
             jni.srcDirs = ["./cpp"]
             jniLibs.srcDirs = ['libs']
+            assets.srcDirs = ["${project.rootDir}/wavegru"]
         }
     }
 

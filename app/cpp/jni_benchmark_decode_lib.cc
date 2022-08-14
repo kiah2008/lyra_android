@@ -59,6 +59,7 @@ Java_com_example_android_lyra_MainActivity_benchmarkDecode(
     JNIEnv* env, jobject this_obj, jint num_cond_vectors,
     jstring model_base_path) {
   const char* cpp_model_base_path = env->GetStringUTFChars(model_base_path, 0);
+  assert(cpp_model_base_path!=nullptr);
   int ret = chromemedia::codec::benchmark_decode(num_cond_vectors,
                                                  cpp_model_base_path);
   env->ReleaseStringUTFChars(model_base_path, cpp_model_base_path);

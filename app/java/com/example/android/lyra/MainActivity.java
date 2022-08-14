@@ -36,6 +36,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
   private static final String TAG = "MainActivity";
@@ -208,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
 
       new Thread(
               () -> {
-                Log.i(TAG, "Starting benchmarkDecode()");
+                Log.i(TAG, "Starting benchmarkDecode in " + weightsDirectory);
                 // Example of a call to a C++ lyra method on a background
                 // thread.
                 benchmarkDecode(2000, weightsDirectory);
@@ -225,6 +226,7 @@ public class MainActivity extends AppCompatActivity {
     try {
       AssetManager assetManager = getAssets();
       String[] files = assetManager.list("");
+      Log.d(TAG, "files count " + files.length);
       byte[] buffer = new byte[1024];
       int amountRead;
       for (String file : files) {
@@ -234,15 +236,19 @@ public class MainActivity extends AppCompatActivity {
         }
         InputStream inputStream = assetManager.open(file);
         File outputFile = new File(targetDirectory, file);
+        if (!outputFile.exists()) {
 
-        OutputStream outputStream = new FileOutputStream(outputFile);
-        Log.i(TAG, "copying asset to " + outputFile.getPath());
+          OutputStream outputStream = new FileOutputStream(outputFile);
+          Log.i(TAG, "copying asset to " + outputFile.getPath());
 
-        while ((amountRead = inputStream.read(buffer)) != -1) {
-          outputStream.write(buffer, 0, amountRead);
+          while ((amountRead = inputStream.read(buffer)) != -1) {
+            outputStream.write(buffer, 0, amountRead);
+          }
+          outputStream.close();
+        } else {
+          Log.d(TAG, "ignore copying file " + file);
         }
         inputStream.close();
-        outputStream.close();
       }
     } catch (Exception e) {
       Log.e(TAG, "Error copying assets", e);

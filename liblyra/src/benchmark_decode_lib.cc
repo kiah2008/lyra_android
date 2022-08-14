@@ -102,10 +102,17 @@ void PrintStatsAndWriteCSV(const std::vector<int64_t>& timings,
 
 int benchmark_decode(const int num_cond_vectors,
                      const std::string& model_base_path) {
+  LOG(INFO) << "benchmark decoding testing";
+
   const std::string model_path =
       chromemedia::codec::GetCompleteArchitecturePath(model_base_path);
   if (num_cond_vectors <= 0) {
     LOG(ERROR) << "The number of conditioning vectors has to be positive.";
+    return -1;
+  }
+
+  if (model_path.empty()) {
+    LOG(ERROR) << "invalid model path ";
     return -1;
   }
 
@@ -116,6 +123,7 @@ int benchmark_decode(const int num_cond_vectors,
           chromemedia::codec::kNumFeatures,
           chromemedia::codec::kNumFramesPerPacket,
           LogMelSpectrogramExtractorImpl::GetSilenceValue(), model_path);
+  LOG_ASSERT(model != nullptr);
 
   const int num_samples_per_hop = chromemedia::codec::GetNumSamplesPerHop(
       chromemedia::codec::kInternalSampleRateHz);
@@ -135,6 +143,7 @@ int benchmark_decode(const int num_cond_vectors,
   std::vector<int16_t> random_audio(num_samples_per_hop);
 
   for (int i = 0; i < num_cond_vectors; ++i) {
+    LOG(INFO) << "con vector " << i;
     std::generate(random_audio.begin(), random_audio.end(), [&]() {
       return UnitFloatToInt16Scalar(distribution(generator));
     });

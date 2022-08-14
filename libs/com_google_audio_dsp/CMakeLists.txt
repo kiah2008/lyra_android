@@ -116,3 +116,11 @@ target_link_libraries(
         ${GLOG_LIBS}
         ${ABSL_LIBS}
 )
+
+target_compile_options(
+        audio_dsp
+        PRIVATE
+        -Wno-sign-compare
+        -fpermissive
+        -fext-numeric-literals
+)
