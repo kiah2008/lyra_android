@@ -79,20 +79,33 @@ add_library(audio_dsp STATIC
         audio/dsp/portable/write_wav_file_generic.h
         audio/dsp/portable/write_wav_string.cc
         audio/dsp/portable/write_wav_string.h
+        audio/dsp/portable/number_util.c
+        audio/dsp/portable/number_util.h
+        audio/dsp/portable/rational_factor_resampler_kernel.c
+        audio/dsp/portable/rational_factor_resampler_kernel.h
 
         audio/dsp/spectrogram/spectrogram.cc
         audio/dsp/spectrogram/spectrogram.h
+        audio/dsp/spectrogram/inverse_spectrogram.cc
+
+        audio/dsp/number_util.cc
+        audio/dsp/number_util.h
 
         audio/dsp/porting.cc
         audio/dsp/window_functions.cc
         audio/dsp/window_functions.h
         audio/dsp/types.h
+        audio/dsp/bessel_functions.cc
+        audio/dsp/bessel_functions.h
 
         audio/dsp/mfcc/mel_filterbank.h
         audio/dsp/mfcc/mel_filterbank.cc
 
         audio/dsp/resampler_q.cc
         audio/dsp/resampler_q.h
+
+        audio/dsp/portable/rational_factor_resampler_kernel.c
+        audio/dsp/portable/rational_factor_resampler_kernel.h
         )
 
 target_link_libraries(
@@ -102,12 +115,4 @@ target_link_libraries(
         Eigen3::Eigen
         ${GLOG_LIBS}
         ${ABSL_LIBS}
-)
-
-
-target_include_directories(
-        audio_dsp
-        PRIVATE
-        ${ABSL_INCLUD_DIR}
-        ${GLOG_INCLUD_DIR}
 )

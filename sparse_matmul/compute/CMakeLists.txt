@@ -33,6 +33,9 @@ add_library( # Sets the name of the library.
         matmul_generic.cc
         matmul_generic.h
         matmul.h
+
+        thread_bounds.cc
+        thread_bounds.h
         )
 
 set_target_properties(

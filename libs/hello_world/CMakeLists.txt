@@ -8,4 +8,5 @@ TARGET_LINK_LIBRARIES(helloworld
         PRIVATE
         ${GLOG_LIBS}
         ghc_filesystem
+        ${ABSL_LIBS}
         )

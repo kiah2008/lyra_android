@@ -1,8 +1,10 @@
 cmake_minimum_required(VERSION 3.16)
 project(lyra_codec VERSION 0.1.0)
 
-#include(CTest)
-#enable_testing()
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
 if (NOT TARGET ${log-lib})
 
     find_library( # Sets the name of the path variable.
@@ -14,41 +16,31 @@ if (NOT TARGET ${log-lib})
 
 endif ()
 
-add_library(architecture_utils INTERFACE IMPORTED)
-set_target_properties(architecture_utils PROPERTIES
+ADD_LIBRARY(architecture_utils INTERFACE IMPORTED)
+SET_TARGET_PROPERTIES(architecture_utils PROPERTIES
         INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_CURRENT_SOURCE_DIR}"
         INTERFACE_LINK_LIBRARIES ghc_filesystem
         )
 
 
-add_library(layer_wrapper_interface INTERFACE IMPORTED)
-set_target_properties(layer_wrapper_interface PROPERTIES
+ADD_LIBRARY(layer_wrapper_interface INTERFACE IMPORTED)
+SET_TARGET_PROPERTIES(layer_wrapper_interface PROPERTIES
         INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_CURRENT_SOURCE_DIR}"
         INTERFACE_LINK_LIBRARIES sparse_matmul
         )
 
 
-add_library(layer_wrapper INTERFACE)
-target_include_directories(
+ADD_LIBRARY(layer_wrapper INTERFACE)
+TARGET_INCLUDE_DIRECTORIES(
         layer_wrapper
         INTERFACE
         src/layer_wrapper.h
 )
-target_link_libraries(layer_wrapper INTERFACE
+TARGET_LINK_LIBRARIES(layer_wrapper INTERFACE
         layer_wrapper_interface
         )
 
-#
-#target_link_libraries(lyra_config
-#        PUBLIC
-#        ${Protobuf_LIBRARIES}
-#        )
-#target_include_directories(lyra_config
-#        PUBLIC
-#        ${protobuf_INCLUDE_DIR}
-#        )
-
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/proto)
+ADD_SUBDIRECTORY(${CMAKE_CURRENT_SOURCE_DIR}/proto)
 
 ADD_LIBRARY(lyra-lib STATIC
         decoder_main.cc
@@ -94,7 +86,29 @@ ADD_LIBRARY(lyra-lib STATIC
 
         comfort_noise_generator.cc
         comfort_noise_generator.h
+
+        dsp_util.cc
+        dsp_util.h
+
+        vector_quantizer_impl.cc
+        vector_quantizer_impl.h
+
+        filter_banks.cc
+        filter_banks.h
+
+        noise_estimator.cc
+        noise_estimator.h
+
+        quadrature_mirror_filter.cc
+        quadrature_mirror_filter.h
+
+        gilbert_model.cc
+        gilbert_model.h
+
+        naive_spectrogram_predictor.cc
+        naive_spectrogram_predictor.h
         )
+
 
 TARGET_LINK_LIBRARIES(
         lyra-lib
@@ -106,14 +120,14 @@ TARGET_LINK_LIBRARIES(
         lyra-config
         audio_dsp_hdr
         audio_dsp
+        sparse_matmul
+        fft2d
 )
 
 TARGET_INCLUDE_DIRECTORIES(
         lyra-lib
         PUBLIC
         ${Protobuf_INCLUDE_DIRS}
-        ${ABSL_INCLUD_DIR}
-        ${GLOG_INCLUD_DIR}
         ${EIGEN3_INCLUDE_DIRS}
 )
 

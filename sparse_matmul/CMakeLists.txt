@@ -9,13 +9,6 @@ cmake_minimum_required(VERSION 3.16)
 
 project(sparse_matmul_project VERSION 0.1.0)
 
-
-#add_library(sparse_matmul INTERFACE)
-#set_target_properties(sparse_matmul
-#        INTERFACE_INCLUDE_DIRECTORIES "sparse_matmul.h.h"
-#        INTERFACE_LINK_LIBRARIES sparse_matmul
-#        )
-
 ADD_LIBRARY(sparse_matmul STATIC "")
 
 TARGET_SOURCES(sparse_matmul
@@ -28,6 +21,8 @@ TARGET_SOURCES(sparse_matmul
         ${CMAKE_CURRENT_SOURCE_DIR}/compute/matmul_fixed_avx2.h
         ${CMAKE_CURRENT_SOURCE_DIR}/compute/matmul_generic.cc
         ${CMAKE_CURRENT_SOURCE_DIR}/compute/matmul_generic.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/compute/thread_bounds.cc
+        ${CMAKE_CURRENT_SOURCE_DIR}/compute/thread_bounds.h
 
         ${CMAKE_CURRENT_SOURCE_DIR}/numerics/fast_transcendentals.cc
         ${CMAKE_CURRENT_SOURCE_DIR}/numerics/fast_transcendentals.h
@@ -36,6 +31,7 @@ TARGET_SOURCES(sparse_matmul
         ${CMAKE_CURRENT_SOURCE_DIR}/numerics/type_utils.h
 
         ${CMAKE_CURRENT_SOURCE_DIR}/vector/cache_aligned_vector.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/vector/aligned_malloc.cc
 
 
         ${CMAKE_CURRENT_SOURCE_DIR}/os/coop_threads.cc
@@ -48,15 +44,8 @@ TARGET_SOURCES(sparse_matmul
         )
 
 set_target_properties(sparse_matmul PROPERTIES
-        INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_CURRENT_SOURCE_DIR}/compute;${CMAKE_CURRENT_SOURCE_DIR}/numerics; ${CMAKE_CURRENT_SOURCE_DIR}/layers"
+        INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_CURRENT_SOURCE_DIR}/compute;${CMAKE_CURRENT_SOURCE_DIR}/numerics;${CMAKE_CURRENT_SOURCE_DIR}/layers"
         )
-
-target_include_directories(
-        sparse_matmul
-        PRIVATE
-        ${ABSL_INCLUD_DIR}
-        ${GLOG_INCLUD_DIR}
-)
 
 target_link_libraries(
         sparse_matmul
@@ -64,4 +53,5 @@ target_link_libraries(
         ${ABSL_LIBS}
         ${GLOG_LIBS}
         ghc_filesystem
+        z
 )
